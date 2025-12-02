@@ -26,15 +26,14 @@ button3 = Pin(4, Pin.IN, Pin.PULL_UP)
 def measure_distance():
     while gy53.value() == 0:
         pass
-    start_time = time.ticks_us()
+    starttime = time.ticks_us()
 
     while gy53.value() == 1:
         pass
-    end_time = time.ticks_us()
-
-    pulse_width_us = time.ticks_diff(end_time, start_time)
-
-    distance_mm = pulse_width_us * 0.17
+    endtime = time.ticks_us()
+    pulse_width_us = time.ticks_diff(endtime, starttime)
+    distance_mm = pulse_width_us
+    distance_mm = distance_mm / 1000.0
     return distance_mm
 
 def read_buttons():
