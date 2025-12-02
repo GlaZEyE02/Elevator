@@ -33,7 +33,7 @@ def measure_distance():
     endtime = time.ticks_us()
     pulse_width_us = time.ticks_diff(endtime, starttime)
     distance_mm = pulse_width_us
-    distance_mm = distance_mm / 1000.0
+    distance_mm = distance_mm / 1000
     return distance_mm
 
 def read_buttons():
