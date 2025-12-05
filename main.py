@@ -68,7 +68,7 @@ def state_stable():
 
 
 def state_stue(distance_mm):
-    while not distance_mm < 0.5:
+    while not distance_mm < 0.7:
         distance_mm = measure_distance()
         pwm1.duty_u16(0)
         pwm2.duty_u16(32768)
@@ -82,12 +82,12 @@ def state_stue(distance_mm):
 
 
 def state_etage1(distance_mm):
-    while not 1.5 <= distance_mm <= 1.7:
+    while not 1.5 <= distance_mm <= 1.8:
         distance_mm = measure_distance()
-        if distance_mm < 2:
+        if distance_mm < 1.8:
             pwm1.duty_u16(32768)
             pwm2.duty_u16(0)
-        elif distance_mm > 2:
+        elif distance_mm > 1.8:
             pwm1.duty_u16(0)
             pwm2.duty_u16(32768)
 
@@ -96,11 +96,11 @@ def state_etage1(distance_mm):
     pwm2.duty_u16(0)
     return "stable"
 
-    return "etage1"
+
 
 
 def state_etage2(distance_mm):
-    while not 2.3 <= distance_mm <= 2.4:
+    while not 3 <= distance_mm <= 3.2:
         distance_mm = measure_distance()
         pwm1.duty_u16(32768)
         pwm2.duty_u16(0)
@@ -109,7 +109,7 @@ def state_etage2(distance_mm):
     pwm2.duty_u16(0)
     return "stable"
 
-    return "etage2"
+
 
 
 
